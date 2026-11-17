@@ -439,7 +439,7 @@ public final class FeatureFlagsImpl implements FeatureFlags {
 
     @Override
     public boolean forceMonochromeAppIcons() {
-        return false;
+        return true;
     }
 
     @Override
