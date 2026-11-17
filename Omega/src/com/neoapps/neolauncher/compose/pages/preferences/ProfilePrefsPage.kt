@@ -90,6 +90,7 @@ fun ProfilePrefsPage() {
             *listOfNotNull(
                 prefs.profileWindowCornerRadius,
                 prefs.profileAllowRotation,
+                                prefs.profileZoomLaunchAnimation,
                 prefs.profilePopupMenu
                 //prefs.profileShowTopShadow
             ).toTypedArray()
