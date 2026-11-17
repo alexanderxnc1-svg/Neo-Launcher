@@ -96,7 +96,7 @@ import com.android.launcher3.util.SystemUiController;
 import com.android.launcher3.util.ViewCache;
 import com.android.launcher3.util.WeakCleanupSet;
 import com.android.launcher3.widget.LauncherWidgetHolder;
-import com.android.launcher3.widget.picker.model.WidgetPickerDataProvider;
+import com.android.launcher3.widget.picker.model.WidgetPickerDataProvider;import com.neoapps.neolauncher.preferences.NeoPrefs;
 
 import java.util.List;
 
@@ -581,8 +581,15 @@ public interface ActivityContext extends SavedStateRegistryOwner {
                 height = bounds.height();
             }
         }
-        ActivityOptions options =
-                allowBGLaunch(ActivityOptions.makeClipRevealAnimation(v, left, top, width, height));
+                boolean zoomAnimation = false;
+        try {
+            zoomAnimation = NeoPrefs.getInstance().getProfileZoomLaunchAnimation().getValue();
+        } catch (Throwable ignored) {
+        }
+        ActivityOptions launchOptions = zoomAnimation
+                ? ActivityOptions.makeScaleUpAnimation(v, left, top, width, height)
+                : ActivityOptions.makeClipRevealAnimation(v, left, top, width, height);
+        ActivityOptions options = allowBGLaunch(launchOptions);
         options.setLaunchDisplayId(
                 (v != null && v.getDisplay() != null) ? v.getDisplay().getDisplayId()
                         : Display.DEFAULT_DISPLAY);
