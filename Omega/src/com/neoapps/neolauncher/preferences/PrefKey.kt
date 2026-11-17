@@ -48,7 +48,7 @@ object PrefKey {
     val PROFILE_ICON_SHADOW = booleanPreferencesKey("profile_icon_shadow")
     val PROFILE_WINDOW_CORNER_RADIUS = floatPreferencesKey("profile_custom_window_corner_radius")
     val PROFILE_STATUSBAR_SHADOW = booleanPreferencesKey("profile_status_bar_shadow")
-
+val PROFILE_ZOOM_LAUNCH_ANIMATION = booleanPreferencesKey("profile_zoom_launch_animation")
     // moved from Desktop
     val PROFILE_ROTATION_ALLOW = booleanPreferencesKey(ALLOW_ROTATION_PREFERENCE_KEY)
 
