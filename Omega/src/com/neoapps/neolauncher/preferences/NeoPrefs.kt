@@ -255,7 +255,13 @@ class NeoPrefs private constructor(val context: Context) {
             legacyPrefs.savePreference(key = "pref_allowRotation", value = it)
         }
     )
-
+    val profileZoomLaunchAnimation = BooleanPref(
+        titleId = R.string.zoom_launch_animation_title,
+        summaryId = R.string.zoom_launch_animation_summary,
+        dataStore = dataStore,
+        key = PrefKey.PROFILE_ZOOM_LAUNCH_ANIMATION,
+        defaultValue = false,
+    )
     // TODO fix this
     val profileShowTopShadow = BooleanPref(
         dataStore = dataStore,
